@@ -6,20 +6,61 @@
 
 <body>
   <script>
-    function computerPlay {
-      let choice = Math.random(3);
+    let computerScore = 0;
+    let playerScore = 0;
+    let roundCounter = 0;
+
+    function computerPlay() {
+      let choice = Math.floor((Math.random() * 3) + 1); //get random int from 1 to 3
       switch (choice) {
-        case 0:
-          return "Rock";
-          break;
         case 1:
-          return "Paper";
+          return "ROCK";
           break;
         case 2:
-          return "Scissors";
+          return "PAPER";
+          break;
+        case 3:
+          return "SCISSORS";
           break;
         default:
           return "Something has gone wrong!"
+      }
+    }
+    function playRound(playerSelection, computerSelection) {
+        if (computerSelection == "ROCK" && playerSelection == "SCISSORS") {
+          computerScore += 1;
+          alert("You lose. Rock beats Scissors");
+        } else if (computerSelection == "PAPER" && playerSelection == "ROCK") {
+          computerScore += 1;
+          alert("You lose. Paper beats Rock");
+        } else if (computerSelection == "SCISSORS" && playerSelection == "PAPER") {
+          computerScore += 1
+          alert("You lose. Scissors beats Paper.");
+        } else if (computerSelection == playerSelection) {
+          alert("It's a draw, try again!");
+          playGame();
+        } else {
+          playerScore += 1
+          alert("You win!");
+        }
+        roundCounter += 1;
+      }
+
+    function playGame() {
+      let playerChoice = prompt('Choose thy weapon').toUpperCase();
+      let computerChoice = computerPlay();
+      playRound(playerChoice,computerChoice);
+      if (roundCounter > 5) {
+        if (playerScore > computerScore) {
+          alert("You won the game!");
+          return 0;
+        } else if (playerScore < computerScore) {
+          alert("You lost the game!");
+          return 0;
+        } else {
+          alert("Looks like a draw.");
+          return 0;
+        }
       }
     }
   </script>
