@@ -90,11 +90,11 @@ function playRound(playerSelection, computerSelection) {
 
   function updateScore() {
     if (roundCounter > 5) {
-      document.getElementById('countRound').innerHTML = "Round: " + roundCounter;
+      document.getElementById('scoreComputer').innerHTML = "Computer: " + computerScore;
       document.getElementById('scorePlayer').innerHTML = "Player: " + playerScore;
       document.getElementById('countRound').innerHTML = "Game Over";
     } else if (roundCounter === 5){
-      document.getElementById('countRound').innerHTML = "Round: " + roundCounter;
+      document.getElementById('scoreComputer').innerHTML = "Computer: " + computerScore;
       document.getElementById('scorePlayer').innerHTML = "Player: " + playerScore;
       document.getElementById('countRound').innerHTML = "Round: Final Round";
     } else {
