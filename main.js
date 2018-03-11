@@ -7,6 +7,7 @@ let playerButtonPress = '';
 updateScore();
 
 const newGameButton = document.getElementById('newGame');
+const instructions = document.getElementById('instructions');
 
 function computerPlay() {
   let choice = Math.floor((Math.random() * 3) + 1); //get random int from 1 to 3
@@ -69,6 +70,7 @@ function playRound(playerSelection, computerSelection) {
     scissorsButton.className = 'gameButtons';
 
     newGameButton.style.display = 'block';
+    instructions.style.display = 'block';
 
     let play = document.getElementsByClassName('gameButtons');
     for (let i = 0; i <= 2; i++) {
@@ -95,7 +97,6 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 const startGame = document.getElementById('startButton')
-//startGame.addEventListener('click', createButtons);
 startGame.addEventListener('click', createButtons);
 
 

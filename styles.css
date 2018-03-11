@@ -23,6 +23,11 @@
   background-color: lightgreen;
 }
 
+#gamePlayButtons p {
+  display: none;
+  text-align: center;
+}
+
 .gameButtons {
   display: block;
   margin-left: auto;
