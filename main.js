@@ -9,6 +9,14 @@ updateScore();
 const newGameButton = document.getElementById('newGame');
 const instructions = document.getElementById('instructions');
 
+const gamePlayButtons = document.getElementById('gamePlayButtons');
+const rockButton = document.createElement('button');
+rockButton.innerHTML = ('Rock');
+const paperButton = document.createElement('button');
+paperButton.innerHTML = ('Paper');
+const scissorsButton = document.createElement('button');
+scissorsButton.innerHTML = ('Scissors');
+
 function computerPlay() {
   let choice = Math.floor((Math.random() * 3) + 1); //get random int from 1 to 3
   switch (choice) {
@@ -53,13 +61,6 @@ function playRound(playerSelection, computerSelection) {
   }
 
   function createButtons() {
-    const gamePlayButtons = document.getElementById('gamePlayButtons');
-    const rockButton = document.createElement('button');
-    rockButton.innerHTML = ('Rock');
-    const paperButton = document.createElement('button');
-    paperButton.innerHTML = ('Paper');
-    const scissorsButton = document.createElement('button');
-    scissorsButton.innerHTML = ('Scissors');
 
     gamePlayButtons.appendChild(rockButton);
     gamePlayButtons.appendChild(paperButton);
@@ -82,14 +83,20 @@ function playRound(playerSelection, computerSelection) {
         } else {
           playerButtonPress = "Scissors".toUpperCase();
         }
-        play[i].addEventListener('click', playGame);
       });
+      play[i].addEventListener('click', playGame);
     }
   }
 
   function updateScore() {
     if (roundCounter > 5) {
-      document.getElementById('countRound').innerHTML = "Game Over"
+      document.getElementById('countRound').innerHTML = "Round: " + roundCounter;
+      document.getElementById('scorePlayer').innerHTML = "Player: " + playerScore;
+      document.getElementById('countRound').innerHTML = "Game Over";
+    } else if (roundCounter === 5){
+      document.getElementById('countRound').innerHTML = "Round: " + roundCounter;
+      document.getElementById('scorePlayer').innerHTML = "Player: " + playerScore;
+      document.getElementById('countRound').innerHTML = "Round: Final Round";
     } else {
       document.getElementById('countRound').innerHTML = "Round: " + roundCounter;
       document.getElementById('scorePlayer').innerHTML = "Player: " + playerScore;
