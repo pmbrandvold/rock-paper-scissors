@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  <link rel="stylesheet" href="./styles.css"></link>
 </head>
 
 <body>
@@ -9,61 +9,16 @@
   <h1 style="text-align: center">Welcome to Rock, Paper, Scissors!</h1>
   <h2 style="text-align: center">Do you have what it takes to beat the computer??</h2>
   <p style="text-align: center">To play, click the "Start Game" button below</p>
-  <button onclick="playGame()" style="margin: auto; display: block;">Start Game</button>
+  <button id="startButton" class="buttons">Start Game</button>
+  <button id="newGame" class="buttons">New Game</button>
+  <div id="gamePlayButtons">
+    <p id="instructions"> Choose Thy Weapon!</p>
+  </div>
+  <p id="scoreComputer">Computer: </p>
+  <p id="scorePlayer">Player: </p>
+  <p id="countRound">Round: </p>
 
-  <script>
-    let computerScore = 0;
-    let playerScore = 0;
-    let roundCounter = 1;
-
-    function computerPlay() {
-      let choice = Math.floor((Math.random() * 3) + 1); //get random int from 1 to 3
-      switch (choice) {
-        case 1:
-          return "ROCK";
-          break;
-        case 2:
-          return "PAPER";
-          break;
-        case 3:
-          return "SCISSORS";
-          break;
-        default:
-          return "Something has gone wrong!"
-      }
-    }
-    function playRound(playerSelection, computerSelection) {
-        if (computerSelection == "ROCK" && playerSelection == "SCISSORS") {
-          alert("You lose. Rock beats Scissors");
-          ++roundCounter;
-          return ++computerScore;
-        } else if (computerSelection == "PAPER" && playerSelection == "ROCK") {
-          alert("You lose. Paper beats Rock");
-          ++roundCounter;
-          return ++computerScore;
-        } else if (computerSelection == "SCISSORS" && playerSelection == "PAPER") {
-          alert("You lose. Scissors beats Paper.");
-          ++roundCounter;
-          return ++computerScore;
-        } else if (computerSelection == playerSelection) {
-          alert("It's a draw, try again!");
-          playGame();
-        } else {
-          alert("You win!");
-          ++roundCounter;
-          return ++playerScore;
-        }
-      }
-
-    function playGame() {
-      while (roundCounter < 6) {
-        let playerChoice = prompt('Choose thy weapon').toUpperCase();
-        let computerChoice = computerPlay();
-        playRound(playerChoice,computerChoice);
-        console.log("Computer: " + computerScore + "\nPlayer: " + playerScore + "\nRound: " + (roundCounter-1));
-      }
-    }
-  </script>
+  <script src="./main.js"></script>
 
 </body>
 </html>
