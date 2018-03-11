@@ -15,13 +15,12 @@
 }
 
 #newGame {
-  display: block;
+  display: none;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
   color: black;
   background-color: lightgreen;
-  display: none;
 }
 
 .gameButtons {

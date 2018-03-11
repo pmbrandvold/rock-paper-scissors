@@ -6,6 +6,8 @@ let playerButtonPress = '';
 
 updateScore();
 
+const newGameButton = document.getElementById('newGame');
+
 function computerPlay() {
   let choice = Math.floor((Math.random() * 3) + 1); //get random int from 1 to 3
   switch (choice) {
@@ -66,6 +68,8 @@ function playRound(playerSelection, computerSelection) {
     paperButton.className = 'gameButtons';
     scissorsButton.className = 'gameButtons';
 
+    newGameButton.style.display = 'block';
+
     let play = document.getElementsByClassName('gameButtons');
     for (let i = 0; i <= 2; i++) {
       play[i].addEventListener('click', function(){
@@ -100,7 +104,6 @@ function playGame() {
     alert('Game Over!');
     return 0;
   }
-  console.log('Choose thy weapon');
   if (playerButtonPress === "ROCK") {
     playRound('ROCK', computerPlay());
   } else if (playerButtonPress === "PAPER") {
@@ -109,17 +112,5 @@ function playGame() {
     playRound('SCISSORS', computerPlay());
   }
 }
-  /*
-function playGame() {
-  createButtons();
 
-  if (roundCounter <= 5) {
-    console.log('click a button');
-    let play = document.getElementsByClassName('gameButtons');
-    for (let i = 0; i <= 2; i++) {
-      play[i].addEventListener('click', function(){playRound(play[i].innerHTML.toUpperCase(), computerPlay())});
-    }
-  } else
-  alert('game over');
-  return;
-}*/
+newGameButton.addEventListener('click', function() {location.reload()});
